@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{8F281285-54DA-43C6-BAC9-23D3EB65E636}</ProjectGuid>
+    <RootNamespace>PrivateMenu</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Wolf</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediate\$(Configuration)\</IntDir>
+    <TargetName>Wolf</TargetName>
+    <TargetExt>.dll</TargetExt>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)/src;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ShowIncludes>false</ShowIncludes>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>minhook.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\backend\backendMain.h" />
+    <ClInclude Include="src\backend\backendNatives.h" />
+    <ClInclude Include="src\backend\backendHooking.h" />
+    <ClInclude Include="src\menu\submenus\Player.h" />
+    <ClInclude Include="src\menu\submenus\playerMenu.h" />
+    <ClInclude Include="src\menu\submenus\self\animationMenu.h" />
+    <ClInclude Include="src\menu\submenus\self\wardrobeMenu.h" />
+    <ClInclude Include="src\menu\submenus\self\wardrobe\loadWardrobeMenu.h" />
+    <ClInclude Include="src\menu\submenus\self\wardrobe\wardrobePresetsMenu.h" />
+    <ClInclude Include="src\menu\util\ScriptHookV.hpp" />
+    <ClInclude Include="src\util\config.h" />
+    <ClInclude Include="src\util\input\mouse.h" />
+    <ClInclude Include="src\util\memory\patternBatch.h" />
+    <ClInclude Include="src\util\memory\reclass.h" />
+    <ClInclude Include="src\util\memory\VPBypass.h" />
+    <ClInclude Include="src\util\profiler.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\menu\globals.h" />
+    <ClInclude Include="src\menu\menu.h" />
+    <ClInclude Include="src\menu\options\breakOption.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\menu\options\buttonOption.h" />
+    <ClInclude Include="src\menu\options\numberOption.h" />
+    <ClInclude Include="src\menu\options\option.h" />
+    <ClInclude Include="src\menu\options\scrollOption.h" />
+    <ClInclude Include="src\menu\options\submenuOption.h" />
+    <ClInclude Include="src\menu\options\toggleOption.h" />
+    <ClInclude Include="src\menu\util\animatedYtd.h" />
+    <ClInclude Include="src\menu\util\scaleform.h" />
+    <ClInclude Include="src\menu\util\playerManager.h" />
+    <ClInclude Include="src\menu\renderer.h" />
+    <ClInclude Include="src\menu\submenu.h" />
+    <ClInclude Include="src\menu\submenuHandler.h" />
+    <ClInclude Include="src\menu\submenus\mainMenu.h" />
+    <ClInclude Include="src\menu\util\entityControl.h" />
+    <ClInclude Include="src\menu\util\menuFunctions.h" />
+    <ClInclude Include="src\menu\util\menuInput.h" />
+    <ClInclude Include="src\util\input\controller.h" />
+    <ClInclude Include="src\util\pugiconfig.hpp" />
+    <ClInclude Include="src\util\pugixml.hpp" />
+    <ClInclude Include="src\natives\crossmap.h" />
+    <ClInclude Include="src\natives\invoker.h" />
+    <ClInclude Include="src\natives\natives.h" />
+    <ClInclude Include="src\minhook.h" />
+    <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\util\fiberManager.h" />
+    <ClInclude Include="src\util\fiberPool.h" />
+    <ClInclude Include="src\util\input\input.h" />
+    <ClInclude Include="src\util\input\keyboard.h" />
+    <ClInclude Include="src\util\memory\memory.h" />
+    <ClInclude Include="src\util\status.h" />
+    <ClInclude Include="src\util\json.h" />
+    <ClInclude Include="src\util\log.h" />
+    <ClInclude Include="src\util\memory\pattern.h" />
+    <ClInclude Include="src\util\script.h" />
+    <ClInclude Include="src\util\threadPool.h" />
+    <ClInclude Include="src\util\translationString.h" />
+    <ClInclude Include="src\util\types.h" />
+    <ClInclude Include="src\util\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\backend\backendMain.cpp" />
+    <ClCompile Include="src\backend\backendNatives.cpp" />
+    <ClCompile Include="src\backend\backendHooking.cpp" />
+    <ClCompile Include="src\menu\submenus\Player.cpp" />
+    <ClCompile Include="src\menu\submenus\playerMenu.cpp" />
+    <ClCompile Include="src\menu\submenus\self\animationMenu.cpp" />
+    <ClCompile Include="src\menu\submenus\self\wardrobeMenu.cpp" />
+    <ClCompile Include="src\menu\submenus\self\wardrobe\loadWardrobeMenu.cpp" />
+    <ClCompile Include="src\menu\submenus\self\wardrobe\wardrobePresetsMenu.cpp" />
+    <ClCompile Include="src\menu\util\ScriptHookV.cpp" />
+    <ClCompile Include="src\util\Config.cpp" />
+    <ClCompile Include="src\util\input\mouse.cpp" />
+    <ClCompile Include="src\util\memory\pattern.cpp" />
+    <ClCompile Include="src\util\memory\patternBatch.cpp" />
+    <ClCompile Include="src\util\memory\reclass.cpp" />
+    <ClCompile Include="src\util\memory\VPBypass.cpp" />
+    <ClCompile Include="src\util\profiler.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\menu\menu.cpp" />
+    <ClCompile Include="src\menu\options\breakOption.cpp" />
+    <ClCompile Include="src\menu\options\buttonOption.cpp" />
+    <ClCompile Include="src\menu\options\numberOption.cpp" />
+    <ClCompile Include="src\menu\options\option.cpp" />
+    <ClCompile Include="src\menu\options\submenuOption.cpp" />
+    <ClCompile Include="src\menu\options\toggleOption.cpp" />
+    <ClCompile Include="src\menu\util\scaleform.cpp" />
+    <ClCompile Include="src\menu\util\playerManager.cpp" />
+    <ClCompile Include="src\menu\renderer.cpp" />
+    <ClCompile Include="src\menu\submenu.cpp" />
+    <ClCompile Include="src\menu\submenuHandler.cpp" />
+    <ClCompile Include="src\menu\submenus\mainMenu.cpp" />
+    <ClCompile Include="src\menu\util\entityControl.cpp" />
+    <ClCompile Include="src\menu\util\menuInput.cpp" />
+    <ClCompile Include="src\natives\crossmap.cpp" />
+    <ClCompile Include="src\natives\invoker.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\util\fiberPool.cpp" />
+    <ClCompile Include="src\util\input\controller.cpp" />
+    <ClCompile Include="src\util\input\input.cpp" />
+    <ClCompile Include="src\util\input\keyboard.cpp" />
+    <ClCompile Include="src\util\Log.cpp" />
+    <ClCompile Include="src\util\fiberManager.cpp" />
+    <ClCompile Include="src\util\memory\memory.cpp" />
+    <ClCompile Include="src\util\pugixml.cpp" />
+    <ClCompile Include="src\util\threadPool.cpp" />
+    <ClCompile Include="src\util\translationString.cpp" />
+    <ClCompile Include="src\util\utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="minhook.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="src\natives\return_address_spoofer.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+    </MASM>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
