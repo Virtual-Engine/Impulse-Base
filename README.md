@@ -16,4 +16,6 @@ Impulse Base
 - Updated Pattern
 - Updated Hooks
 
+# Credit
 - Updated By XIFI
+- Impulse Devs
