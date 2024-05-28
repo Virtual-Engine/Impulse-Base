@@ -74,15 +74,6 @@ char* GetGxtTextHook(uint64_t rcx, char* gxtLabel) {
 	else if (!strcmp(gxtLabel, "PM_INF_PGOT5")) {
 		return "Pegasus Invite only session";
 	}
-	else if (!strcmp(gxtLabel, "HUD_TRANSP")) {
-		return "Bouge ton cul le transac";
-	}
-	else if (!strcmp(gxtLabel, "HUD_TRANSPEND")) {
-		return "Bouge ton cul le transfert";
-	}
-	else if (!strcmp(gxtLabel, "HUD_TRYAGAIN")) {
-		return "Comment sa reessaye plus tard connard";
-	}
 	else if (!strcmp(gxtLabel, "PM_INF_PGOB0")) {
 		return "Head straight into GTA Online with the Pegasus Trainer.";
 	}
